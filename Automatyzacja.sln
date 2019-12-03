@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automatyzacja", "Automatyzacja\Automatyzacja.csproj", "{FB1EE89B-162F-4274-8EF3-5F308A5D6258}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObjectExample", "PageObjectExample\PageObjectExample.csproj", "{5C677484-C4FD-4DED-BF21-E9D5B097D44C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FB1EE89B-162F-4274-8EF3-5F308A5D6258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB1EE89B-162F-4274-8EF3-5F308A5D6258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB1EE89B-162F-4274-8EF3-5F308A5D6258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C677484-C4FD-4DED-BF21-E9D5B097D44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C677484-C4FD-4DED-BF21-E9D5B097D44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C677484-C4FD-4DED-BF21-E9D5B097D44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C677484-C4FD-4DED-BF21-E9D5B097D44C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
