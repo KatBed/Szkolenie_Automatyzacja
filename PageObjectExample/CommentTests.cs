@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PageObjectExample
+namespace PageObjectExample //pamiętać o dodawaniu nugetów
 {
-    public class Class1
+    public class CommentTests //nazwy plików i nazwy klas powinny byc takie same
     {
         [Fact]
         public void CanAddNewCommentToLatestNote()
