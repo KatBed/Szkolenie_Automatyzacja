@@ -16,16 +16,30 @@ namespace Automatyzacja
 
         public void CanGoogleWeatherForWarsaw()
         {
-            browser.Navigate().GoToUrl("https://google.com");
+            browser.Navigate().GoToUrl("http://automatyzacja.benedykt.net/");
 
-            var queryBox = browser.FindElement(By.CssSelector(".gLFyf"));
+            var queryBox = browser.FindElement(By.PartialLinkText("ghfjhjhvjhvjh"));
             queryBox.Click();
-            queryBox.SendKeys("pogoda Warszawa");
-            queryBox.Submit();
+            var queryBox1 = browser.FindElement(By.Id("comment"));
+            queryBox1.Click();
+            queryBox1.SendKeys("komentarz dodany przez automat");
+            var queryBox2 = browser.FindElement(By.Id("author"));
+            queryBox2.SendKeys("Kasia Kasia");
+            var queryBox3 = browser.FindElement(By.Id("email"));
+            queryBox3.SendKeys("Kasia@Kasia.wp.pl");
+            var queryBox4 = browser.FindElement(By.Id("submit"));
+            queryBox4.Click();
 
-            var result = browser.FindElement(By.Id("wob_tm"));
+            //poniższa linijka służy do przesuwania elementu kiedy nie widać go na stronie
+            //private void MoveToElement(IWebElement element)
+            //{
+             //   Actions builder = new Actions (browser)
+             //Actions moveTo = builder.MoveToElement(element);
+             //moveTo.Build().Perform();
+            //}
 
-            Assert.Equal("3", result.Text);
+            Assert.Equal("komentarz dodany przez automat", result.Text);
+            
         }
 
         public void Dispose() //metoda Dispose która robi quit
