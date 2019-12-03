@@ -12,7 +12,7 @@ namespace Automatyzacja
             var b = 2;
             //act test
             var result = Function(a, b);
-            //assert czy t co dostalismy jest tym co chcieliśmy
+            //assert czy to co dostalismy jest tym co chcieliśmy
             Assert.Equal(42, result);
         }
         private int Function(int a, int b)
