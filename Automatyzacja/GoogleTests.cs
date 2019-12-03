@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.Linq;
 using Xunit;
 
 namespace Automatyzacja
@@ -38,11 +39,16 @@ namespace Automatyzacja
             email.SendKeys(exampleEmail);
 
             MoveToElement(browser.FindElement(By.CssSelector("div.nav-links")));
+
             browser.FindElement(By.Id("submit")).Submit();
 
             var comments = browser.FindElements(By.CssSelector("article.comment-body"));
-            comments.Where(comments->)
-}
+            var myComments = comments
+                .Where(c => c.FindElement(By.CssSelector(".fn")).Text == exampleAuthor) //ma być takie samo ==
+                .Where(c => c.FindElement(By.CssSelector(".comment-content > p")).Text == exampleText);
+
+            Assert.Single(myComments);
+        }
             //poniższa linijka służy do przesuwania elementu kiedy nie widać go na stronie
             private void MoveToElement(IWebElement element)
             {
@@ -50,9 +56,8 @@ namespace Automatyzacja
                 Actions moveTo = builder.MoveToElement(element);
                 moveTo.Build().Perform();
             }
-
+   
             //Assert.Equal("komentarz dodany przez automat", result.Text);
-           
 
         public void Dispose() //metoda Dispose która robi quit
         {
