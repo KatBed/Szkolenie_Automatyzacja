@@ -22,14 +22,6 @@ namespace PageObjectExample
             var newPost = _browser.FindElement(By.LinkText("Dodaj nowy"));
             newPost.Click();
 
-            //var newTitle = _browser.FindElement(By.Id("title"));
-            //newTitle.SendKeys("To są moje wypociny");
-
-            //var newText = _browser.FindElement(By.Id("content"));
-            //newText.SendKeys("To jest tekst z wypocinTo jest tekst z wypocinTo jest tekst z wypocinTo jest tekst z wypocin");
-
-            //WaitForClickable(By.Id("publish"), 5);
-
             var noteTitle = _browser.FindElement(By.Id("title-prompt-text"));
             noteTitle.Click();
 
@@ -63,7 +55,7 @@ namespace PageObjectExample
 
             return url;
 
-
+            
         }
         internal void WaitForClickable(By by, int seconds)
         {

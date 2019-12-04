@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Security.Policy;
+using Xunit;
 
 namespace PageObjectExample
 {
@@ -12,16 +13,10 @@ namespace PageObjectExample
            
 
             var testNote = new ExampleNote();
-            var NewNote = adminPage.AddNote(testNote); //dodajemy notatkę
-
-           
-
-
+            var newNote = adminPage.AddNote(testNote);
+            var notePage = new NotePage(GetBrowser());
+            notePage.Open(newNote);
+            Assert.True(notePage.Has(testNote));
         }
     } 
 }
-
-// zalogowac sie do panelu administracyjnego (wykonane)
-// utworzyc notatke
-// wylogowac
-// nowa notatka jest opublikowana

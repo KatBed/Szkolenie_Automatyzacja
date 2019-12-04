@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using System;
 using System.Linq;
 
 namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
@@ -30,6 +31,20 @@ namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
             _browser.FindElement(By.Id("submit")).Submit();
 
             return new NotePage(_browser);
+        }
+
+        internal bool Has(ExampleNote testNote)
+        {
+            var title = _browser.FindElement(By.CssSelector("h1.entry-title"));
+            var content = _browser.FindElement(By.CssSelector(".entry-content"));
+
+
+            return testNote.Title == title.Text && testNote.Text == content.Text;
+        }
+
+        internal void Open(string noteUrl)
+        {
+            _browser.Navigate().GoToUrl(noteUrl);
         }
 
         internal bool Has(ExampleComment exampleComment) 
