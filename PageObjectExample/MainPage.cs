@@ -10,13 +10,13 @@ namespace PageObjectExample
 
         private MainPage(IWebDriver browser)
         {
-            _browser = browser; //lub dawać tu podłoge _  (_browser zamiast słowa this)konstruktor
+            _browser = browser; //lub dawać tu podłoge _  (_browser zamiast słowa this)
             browser.Navigate().GoToUrl(MAIN_PAGE_BASE_URL);
         }
 
-        internal static MainPage Open(IWebDriver browser) //metoda stytyczna nie ma dostępu do pól w klasie
+        internal static MainPage Open(IWebDriver browser)
         {
-            return new MainPage(browser); //metoda fabryczna dlatego nie ma _, tworzymy instancje klasy
+            return new MainPage(browser);
         }
 
         internal NotePage NavigateToNewestNote()

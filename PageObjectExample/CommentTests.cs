@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace PageObjectExample //pamiętać o dodawaniu nugetów
 {
@@ -19,3 +18,11 @@ namespace PageObjectExample //pamiętać o dodawaniu nugetów
         
     }
 }
+
+//1. najpierw otwieramy przeglądarkę
+//2. znajdyjemy komentarze
+//3. dodajemy komentarz
+
+
+
+//to jest główna klasa testu, od niej zaczynamy i dajemy nowe klasy wnowych oknach.
