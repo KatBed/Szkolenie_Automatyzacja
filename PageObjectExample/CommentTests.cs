@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace PageObjectExample //pamiętać o dodawaniu nugetów
 {
@@ -17,7 +12,7 @@ namespace PageObjectExample //pamiętać o dodawaniu nugetów
             var exampleComment = new ExampleComment();
             var noteWithComment = note.AddComment(exampleComment);
 
-            Assert.True(noteWithComment.Has(exampleComment));
+            Assert.True(noteWithComment.Has(exampleComment)); //tu moze byc Asercja, nie w klasie
         }
     }
 }
