@@ -8,10 +8,11 @@ namespace PageObjectExample
         public void CanPublishNewNote()
         {
             var startPage = LoginPage.Open(GetBrowser());
-            startPage.LetsLogIn();
+            var adminPage = startPage.LetsLogIn();
+           
 
-            var note = new ExampleNote();
-
+            var testNote = new ExampleNote();
+            var NewNote= adminPage.AddNote(testNote); //dodajemy notatkę
 
         }
     } 

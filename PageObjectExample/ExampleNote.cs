@@ -1,4 +1,6 @@
-﻿namespace PageObjectExample
+﻿using System;
+
+namespace PageObjectExample
 {
     internal class ExampleNote
     {
@@ -10,6 +12,5 @@
         }
         public string Title { get; }
         public string Text { get; }
-       
     }
 }

@@ -14,7 +14,7 @@ namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
             _browser = browser;
         }
 
-        internal NotePage AddComment(ExampleComment exampleComment)//3 zmienne, klasa "ExampleComment" jest kontenerem na 3 zmienne, przekazujemy email, komentarz i autora
+        internal NotePage ExampleNote(ExampleComment exampleComment)//3 zmienne, klasa "ExampleComment" jest kontenerem na 3 zmienne, przekazujemy email, komentarz i autora
         {
             var comment = _browser.FindElement(By.Id("comment"));
             comment.SendKeys(exampleComment.Content);

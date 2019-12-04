@@ -26,10 +26,7 @@ namespace PageObjectExample
             userPassword.SendKeys("auto@Zima2019");
             var userLogIn = _browser.FindElement(By.Id("wp-submit"));
             userLogIn.Click();
-            var newNote = _browser.FindElement(By.LinkText("Wpisy"));
-            newNote.Click();
-            var newPost = _browser.FindElement(By.LinkText("Dodaj nowy"));
-            newPost.Click();
+            
 
             return new AdminPage(_browser);
 

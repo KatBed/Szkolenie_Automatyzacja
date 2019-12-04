@@ -11,7 +11,7 @@ namespace PageObjectExample //pamiętać o dodawaniu nugetów
             var startPage = MainPage.Open(GetBrowser()); //c# czytamy od prawej do lewej Open-metoda fabryczna(tworzenie obiektów)
             var note = startPage.NavigateToNewestNote();
             var testComment = new ExampleComment();
-            var noteWithComment = note.AddComment(testComment);
+            var noteWithComment = note.ExampleNote(testComment);
 
             Assert.True(noteWithComment.Has(testComment)); //tu moze byc Asercja, nie w klasie
         }
