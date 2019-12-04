@@ -12,14 +12,14 @@ namespace PageObjectExample
            
 
             var testNote = new ExampleNote();
-            var NewNote= adminPage.AddNote(testNote); //dodajemy notatkę
+            var NewNote = adminPage.AddNote(testNote); //dodajemy notatkę
+
+           
+
 
         }
     } 
 }
-
-
-
 
 // zalogowac sie do panelu administracyjnego (wykonane)
 // utworzyc notatke

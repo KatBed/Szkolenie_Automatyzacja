@@ -22,38 +22,64 @@ namespace PageObjectExample
             var newPost = _browser.FindElement(By.LinkText("Dodaj nowy"));
             newPost.Click();
 
-            var newTitle = _browser.FindElement(By.Id("title"));
-            newTitle.SendKeys("To są moje wypociny");
+            //var newTitle = _browser.FindElement(By.Id("title"));
+            //newTitle.SendKeys("To są moje wypociny");
 
-            var newText = _browser.FindElement(By.Id("content"));
-            newText.SendKeys("To jest tekst z wypocinTo jest tekst z wypocinTo jest tekst z wypocinTo jest tekst z wypocin");
-       
-            WaitForClickable(By.Id("publish"),5);
+            //var newText = _browser.FindElement(By.Id("content"));
+            //newText.SendKeys("To jest tekst z wypocinTo jest tekst z wypocinTo jest tekst z wypocinTo jest tekst z wypocin");
 
-            var link = _browser.FindElement(By.Id("editable-post-name"));
-                        var linkText = link.GetAttribute("href");
+            //WaitForClickable(By.Id("publish"), 5);
 
-            var newPublish = _browser.FindElement(By.Id("publish"));
-            link.Click();
+            var noteTitle = _browser.FindElement(By.Id("title-prompt-text"));
+            noteTitle.Click();
+
+            var titleElement = _browser.FindElement(By.Id("title"));
+            titleElement.SendKeys(testNote.Title);
+
+            _browser.FindElement(By.Id("content-html")).Click();
+
+            WaitForClickable(By.Id("publish"), 5);
+            WaitForClickable(By.CssSelector(".edit-slug.button"), 5);
+
+            var contentElement = _browser.FindElement(By.Id("content"));
+            contentElement.SendKeys(testNote.Text);
+
+            var publishButton = _browser.FindElement(By.Id("publish"));
+            publishButton.Click();
+
+            WaitForClickable(By.Id("publish"), 5);
+
+            WaitForClickable(By.CssSelector(".edit-slug.button"), 5);
+
+            var postUrl = _browser.FindElement(By.CssSelector("#sample-permalink > a"));
+            var url = postUrl.GetAttribute("href");
 
             var newLogOut = _browser.FindElement(By.Id("wp-admin-bar-my-account"));
             MoveToElement(newLogOut);
             WaitForClickable(By.PartialLinkText("Wyloguj się"), 5);
 
-
             var newLogOut2 = _browser.FindElement(By.PartialLinkText("Wyloguj się"));
             newLogOut2.Click();
 
+            return url;
 
-            return linkText;
+
         }
-
         internal void WaitForClickable(By by, int seconds)
         {
             var wait = new WebDriverWait(_browser, TimeSpan.FromSeconds(seconds));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(by));
         }
-
+        internal void WaitForClickable(IWebElement element, int seconds)
+        {
+            var wait = new WebDriverWait(_browser, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
+        }
+        internal void MoveToElement(By selector)
+        {
+            var element = _browser.FindElement(selector);
+            MoveToElement(element);
+        }
         internal void MoveToElement(IWebElement element)
         {
             Actions builder = new Actions(_browser);
@@ -61,4 +87,5 @@ namespace PageObjectExample
             moveTo.Build().Perform();
         }
     }
+
 }
