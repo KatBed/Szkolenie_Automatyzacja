@@ -9,12 +9,10 @@ namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
     {
         private IWebDriver _browser;
 
-
         public NotePage(IWebDriver browser)
         {
             _browser = browser;
         }
-
         internal NotePage ExampleNote(ExampleComment exampleComment)//3 zmienne, klasa "ExampleComment" jest kontenerem na 3 zmienne, przekazujemy email, komentarz i autora
         {
             var comment = _browser.FindElement(By.Id("comment"));
@@ -32,21 +30,17 @@ namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
 
             return new NotePage(_browser);
         }
-
         internal bool Has(ExampleNote testNote)
         {
             var title = _browser.FindElement(By.CssSelector("h1.entry-title"));
             var content = _browser.FindElement(By.CssSelector(".entry-content"));
 
-
             return testNote.Title == title.Text && testNote.Text == content.Text;
         }
-
         internal void Open(string noteUrl)
         {
             _browser.Navigate().GoToUrl(noteUrl);
         }
-
         internal bool Has(ExampleComment exampleComment) 
         {
             var comments = _browser.FindElements(By.CssSelector("article.comment-body"));
@@ -55,7 +49,6 @@ namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
                 .Where(c => c.FindElement(By.CssSelector(".comment-content > p")).Text == exampleComment.Content);
 
             return myComments.Count() == 1;//Assercja! 
-
         }
         private void MoveToElement(IWebElement element) //funkcja
         {
@@ -63,7 +56,5 @@ namespace PageObjectExample //ta klasa tylko i wyłącznie rozmawia z Selenium
             Actions moveTo = builder.MoveToElement(element);
             moveTo.Build().Perform();
         }
-
-
     }
 }

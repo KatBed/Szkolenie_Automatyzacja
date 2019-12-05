@@ -1,5 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace PageObjectExample
 {
@@ -13,7 +12,6 @@ namespace PageObjectExample
             _browser = browser;
             browser.Navigate().GoToUrl(LOGIN_PAGE_BASE_URL);
         }
-
         internal static LoginPage Open(IWebDriver browser)
         {
             return new LoginPage(browser);
@@ -26,13 +24,10 @@ namespace PageObjectExample
             userPassword.SendKeys("auto@Zima2019");
             var userLogIn = _browser.FindElement(By.Id("wp-submit"));
             userLogIn.Click();
-            
 
             return new AdminPage(_browser);
-
         }
     }
-   
 }
 
 

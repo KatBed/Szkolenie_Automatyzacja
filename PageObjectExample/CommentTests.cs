@@ -4,7 +4,6 @@ namespace PageObjectExample //pamiętać o dodawaniu nugetów
 {
     public class CommentTests : BaseTest//nazwy plików i nazwy klas powinny byc takie same
     {
-      
         [Fact]
         public void CanAddNewCommentToLatestNote()
         {
@@ -15,7 +14,6 @@ namespace PageObjectExample //pamiętać o dodawaniu nugetów
 
             Assert.True(noteWithComment.Has(testComment)); //tu moze byc Asercja, nie w klasie
         }
-        
     }
 }
 
