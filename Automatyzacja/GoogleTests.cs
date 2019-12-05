@@ -42,12 +42,12 @@ namespace Automatyzacja
 
             browser.FindElement(By.Id("submit")).Submit();
 
-            var comments = browser.FindElements(By.CssSelector("article.comment-body"));
-            var myComments = comments
+            var allComments = browser.FindElements(By.CssSelector("article.comment-body"));
+            var filtredComments = allComments
                 .Where(c => c.FindElement(By.CssSelector(".fn")).Text == exampleAuthor) //ma być takie samo ==
                 .Where(c => c.FindElement(By.CssSelector(".comment-content > p")).Text == exampleText);
 
-            Assert.Single(myComments);
+            Assert.Single(filtredComments);
         }
             //poniższa linijka służy do przesuwania elementu kiedy nie widać go na stronie
             private void MoveToElement(IWebElement element)

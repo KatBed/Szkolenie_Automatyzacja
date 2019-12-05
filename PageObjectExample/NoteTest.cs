@@ -14,7 +14,7 @@ namespace PageObjectExample
 
             var testNote = new ExampleNote();
             var newNote = adminPage.AddNote(testNote);
-            var notePage = new NotePage(GetBrowser());
+            var notePage = new NotePage(GetBrowser()); //var bo zwraca stringa (link)
             notePage.Open(newNote);
             Assert.True(notePage.Has(testNote));
         }
